@@ -1,0 +1,9 @@
+#rggpu18
+#rggpu19
+#rggpu36
+#rggpu37
+rggpu40
+rggpu41
+rggpu42
+rggpu43
+rggpu44

@@ -1,0 +1,82 @@
+###########################################################
+#                    CONFIGURATION FILE                   #
+#  Parameters and Directories for Pulsar Search Pipeline  #
+###########################################################
+
+#----------------------------------------
+# Environment Initialization
+#----------------------------------------
+# Path to the environment initialization script
+environ_init_script           = /lustre_archive/apps/tdsoft/env.sh
+
+#----------------------------------------
+# Input Data type flag
+#----------------------------------------
+# Flag to run the whole piprline on desired data type
+data_type = 1                 # Zero for RAW data, one for FILTERBANK data
+
+#----------------------------------------
+# Raw to Filterbank Conversion Configuration
+#----------------------------------------
+# Directories for Raw to Filterbank conversion (input, output, and logs)
+raw_input_dir                 = /lustre_archive/spotlight/data/BeamData/07Jan2025_offAxisTest/B0329_b3/
+fil_output_dir                = /lustre_archive/spotlight/data/AA_INPUT_DATA/Test/
+raw_to_fil_log_dir            = /lustre_archive/spotlight/data/AA_PULSELINE_LOG_FILES/
+raw_to_fil_runner_path        = /lustre_archive/spotlight/data/pulsar_search_pipeline_ver0/raw_to_filterbank/raw_to_fil.py
+
+#Flag and values for Fikterbank extraction
+nbeams_per_raw = 50           # Number of Filterbank files for each raw files
+num_jobs = 30                 # Number of parallel processes
+
+
+#----------------------------------------
+# Astro-Accelerate Configuration
+#----------------------------------------
+# Input file directory for Astro-Accelerate (AA)
+aa_input_file_dir             = /lustre_archive/spotlight/data/pulsar_search_ver0_run_files/aa_run_files/input_files/
+
+# Directory containing executable scripts for AA
+aa_executable_file_dir        = /lustre_archive/spotlight/data/pulsar_search_ver0_run_files/aa_run_files/scripts/
+
+# Directories for AA input, output, and logs
+aa_input_dir                  = /lustre_archive/spotlight/data/AA_INPUT_DATA/Test/
+aa_output_dir                 = /lustre_archive/spotlight/data/AA_OUTPUT_DATA/
+aa_log_dir                    = /lustre_archive/spotlight/data/AA_PULSELINE_LOG_FILES/
+
+#----------------------------------------
+# PulseLine Configuration
+#----------------------------------------
+# Input file directory for PulseLine
+pulseline_input_file_dir      = /lustre_archive/spotlight/data/pulsar_search_ver0_run_files/pulseline_run_files/input_files/
+
+# Directories for PulseLine input, output, and logs and running
+pulseline_input_dir           = /lustre_archive/spotlight/data/PULSELINE_INPUT_DATA/
+pulseline_output_dir          = /lustre_archive/spotlight/data/PULSELINE_OUTPUT_DATA/
+pulseline_log_dir             = /lustre_archive/spotlight/data/AA_PULSELINE_LOG_FILES/
+first_stage_sifting_path      = /lustre_archive/spotlight/data/pulsar_search_pipeline_ver0/SPOTLIGHT_PULSELINE/first_stage_candidate_sifting.py
+
+# Beam sifting flag
+beam_level_sifting = 1         # Zero for no beam level candidate sifting, one for beam level sifting
+
+final_stage_sifting_path      = /lustre_archive/spotlight/data/pulsar_search_pipeline_ver0/SPOTLIGHT_PULSELINE/final_stage_candidate_sifting.py
+beam_level_folding_path       = /lustre_archive/spotlight/data/pulsar_search_pipeline_ver0/SPOTLIGHT_PULSELINE/beam_level_candidate_folding.py
+
+#----------------------------------------
+# Classifier Configuration
+#----------------------------------------
+# Directories for Classifier input, output, and logs
+classifier_input_dir          = /lustre_archive/spotlight/data/PULSELINE_OUTPUT_DATA/
+classifier_output_dir         = /lustre_archive/spotlight/data/PULSAR_CLASSFIER_OUTPUT_DATA/
+classifier_log_dir            = /lustre_archive/spotlight/data/AA_PULSELINE_LOG_FILES/
+
+#----------------------------------------
+# GPU and CPU Configuration
+#----------------------------------------
+# Resource directories for GPU and CPU processing
+avail_gpus_file_dir           = /lustre_archive/spotlight/data/pulsar_search_pipeline_ver0/GPU_resources/
+avail_cpus_file_dir           = /lustre_archive/spotlight/data/pulsar_search_pipeline_ver0/GPU_resources/
+
+# Processing delays for GPU and CPU (in seconds)
+gpu_0_start_delay             = 3         # Delay before starting GPU 0
+gpu_1_start_delay             = 5        # Delay before starting GPU 1
+file_processing_delay         = 2         # Delay between processing consecutive files
